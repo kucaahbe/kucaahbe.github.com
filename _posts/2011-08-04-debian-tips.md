@@ -1,11 +1,12 @@
 ---
 layout: post
-title: List installed packages grouped by release
+title: Debian tips
 ---
-{{ post.title }}
-------------------------------------------
+List of installed packages for specific release(archive):
+---------------------------------------------------------
 
-    aptitude versions '~i'
+    aptitude versions --group-by=none '~i ~Aunstable' | grep -v stable,unstable
 
-Links
+#### Links:
+
 * [list of search patterns for aptitude](http://algebraicthunk.net/~dburrows/projects/aptitude/doc/en/ch02s03s05.html#tableSearchTermQuickGuide)
