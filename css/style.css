@@ -86,10 +86,36 @@ a:hover { color: #036; }
     \\ ========================================== //
 */
 
+body {
+  background: #f3f1f1;
+}
 
+#container {
+  /*outline:1px solid red;*/
+  margin: auto 10%;
+  margin-top: 20px;
+  padding: 1%;
 
+  background: white;
 
+  border-radius: 15px;
+  box-shadow: 1px 1px 5px #888;
+}
 
+footer {
+  padding: 3px 10px;
+  margin-top: 5px;
+
+  background:black;
+  color:white;
+}
+footer #footer-menu {
+  list-style:none;
+  float:right;
+}
+footer #footer-menu li {
+  display: inline-block;
+}
 
 
 
