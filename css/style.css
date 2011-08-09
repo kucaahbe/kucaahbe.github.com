@@ -86,19 +86,88 @@ a:hover { color: #036; }
     \\ ========================================== //
 */
 
+body {
+  background: #f3f1f1;
+}
 
+/* headers */
+h1 {
+  margin: 10px 10px 20px;
 
+  font-size:30px;
+  text-shadow: 2px 2px 2px #000;
+}
+h2,h3,h4,h5 {margin: 7px 0px;}
+h2 {
+  font-size:20px;
+  text-decoration:underline;
+}
+#gravatar {
+  float:right;
+}
+/* lists */
+ul,ol {
+  margin-top:10px;
+  margin-bottom:10px;
+}
+/* tables */
+table {
+}
+table tbody tr {
+  outline:1px solid black;
+}
+table thead tr th {
+  padding: 3px;
+  border:1px solid #9a9a9a;
+}
+table tbody tr td {
+  padding: 3px;
+  border:1px solid #eaeaea;
+}
 
+#container {
+  margin: auto 10%;
+  margin-top: 20px;
+  padding: 1%;
 
+  background: white;
 
+  border-radius: 15px;
+  box-shadow: 1px 1px 5px #888;
+}
 
+footer {
+  padding: 3px 10px;
+  margin-top: 20px;
 
+  background:#f8f8f8;
 
+  text-align:center;
+}
+footer #copy {
+  float:left;
+}
+footer ul#footer-menu {
+  margin:0px;
+  list-style:none;
+  float:right;
+}
+footer ul#footer-menu li {
+  display: inline-block;
+}
 
+ul.posts  {
+  width: 40%;
+}
+ul.posts li:hover {
+  background:#e6ffda;
+  list-style-type:circle;
+}
+ul.posts li span {
+  float:right;
+}
 
-
-
-
+/* end of 'Your Styles' */
 
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .hidden { display: none; visibility: hidden; }
