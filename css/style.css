@@ -110,6 +110,20 @@ ul,ol {
   margin-top:10px;
   margin-bottom:10px;
 }
+/* tables */
+table {
+}
+table tbody tr {
+  outline:1px solid black;
+}
+table thead tr th {
+  padding: 3px;
+  border:1px solid #9a9a9a;
+}
+table tbody tr td {
+  padding: 3px;
+  border:1px solid #eaeaea;
+}
 
 #container {
   margin: auto 10%;
