@@ -141,6 +141,17 @@ footer ul#footer-menu li {
   display: inline-block;
 }
 
+ul.posts  {
+  width: 40%;
+}
+ul.posts li:hover {
+  background:#e6ffda;
+  list-style-type:circle;
+}
+ul.posts li span {
+  float:right;
+}
+
 /* end of 'Your Styles' */
 
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
