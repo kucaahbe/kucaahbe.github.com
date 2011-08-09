@@ -97,8 +97,17 @@ h1 {
   font-size:30px;
   text-shadow: 2px 2px 2px #000;
 }
+h2 {
+  font-size:20px;
+  text-decoration:underline;
+}
 #gravatar {
   float:right;
+}
+/* lists */
+ul,ol {
+  margin-top:10px;
+  margin-bottom:10px;
 }
 
 #container {
@@ -124,11 +133,12 @@ footer {
 footer #copy {
   float:left;
 }
-footer #footer-menu {
+footer ul#footer-menu {
+  margin:0px;
   list-style:none;
   float:right;
 }
-footer #footer-menu li {
+footer ul#footer-menu li {
   display: inline-block;
 }
 
