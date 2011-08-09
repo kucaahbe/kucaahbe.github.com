@@ -111,7 +111,6 @@ ul,ol {
 }
 
 #container {
-  /*outline:1px solid red;*/
   margin: auto 10%;
   margin-top: 20px;
   padding: 1%;
@@ -142,14 +141,7 @@ footer ul#footer-menu li {
   display: inline-block;
 }
 
-
-
-
-
-
-
-
-
+/* end of 'Your Styles' */
 
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .hidden { display: none; visibility: hidden; }
