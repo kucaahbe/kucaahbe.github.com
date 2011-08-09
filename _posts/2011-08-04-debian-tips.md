@@ -5,7 +5,9 @@ title: Debian tips
 List of installed packages for specific release(archive):
 ---------------------------------------------------------
 
-    aptitude versions --group-by=none '~i ~Aunstable' | grep -v stable,unstable
+```
+aptitude versions --group-by=none '~i ~Aunstable' | grep -v stable,unstable
+```
 
 #### Links:
 
