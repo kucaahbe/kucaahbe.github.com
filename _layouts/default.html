@@ -29,12 +29,18 @@ links:
                 <div id="main" role="main">{{ content }} </div>
 
 		<footer>
-                Copyright &copy; 2011 by kucaahbe
+                <div id="copy"> Copyright &copy; 2011 by kucaahbe</div>
+                <a href="/">&lArr; Home</a>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
                 <ul id="footer-menu">
                 {% for link in page.links %}
                 <li><a href="{{ link | last }}">{{ link | first }}</a></li>
                 {% endfor %}
                 </ul>
+                <div class="clearfix"></div>
 		</footer>
 	</div>
 

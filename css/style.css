@@ -104,10 +104,14 @@ body {
 
 footer {
   padding: 3px 10px;
-  margin-top: 5px;
+  margin-top: 20px;
 
-  background:black;
-  color:white;
+  background:#f8f8f8;
+
+  text-align:center;
+}
+footer #copy {
+  float:left;
 }
 footer #footer-menu {
   list-style:none;
