@@ -41,5 +41,21 @@ sudo aptitude install virtualbox-4.1 dnsmasq
 Configuring
 -----------
 
-1. Turn of native virtualbox dhcp server()
+1. Turn of native virtualbox dhcp server
 2. Configure virtualbox's virtual network adapter to have static ip address 10.1.0.254 and netmask 255.255.255.0
+3. configure target virtual machine network to 'host virtual adapter'
+4. configure dnsmasq:
+   1. incomment following line in /etc/dnsmasq.conf:
+
+        conf-dir=/etc/dnsmasq.d
+   2. and add following to /etc/dnsmasq.d/dhcp
+
+        interface=vboxnet0
+        dhcp-range=10.1.0.1,10.1.0.10,12h
+        log-queries # for debugging
+        log-dhcp    # for debugging
+   3. by default dnsmasq will log debug info /var/log/syslog, look there if you run into trouble
+   4. run on virtual machine
+
+        sudo dhclient eth0
+   5. and see ip there
