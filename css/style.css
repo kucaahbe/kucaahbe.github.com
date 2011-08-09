@@ -97,6 +97,7 @@ h1 {
   font-size:30px;
   text-shadow: 2px 2px 2px #000;
 }
+h2,h3,h4,h5 {margin: 7px 0px;}
 h2 {
   font-size:20px;
   text-decoration:underline;
