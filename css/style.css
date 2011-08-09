@@ -86,10 +86,61 @@ a:hover { color: #036; }
     \\ ========================================== //
 */
 
+body {
+  background: #f3f1f1;
+}
 
+/* headers */
+h1 {
+  margin: 10px 10px 20px;
 
+  font-size:30px;
+  text-shadow: 2px 2px 2px #000;
+}
+h2 {
+  font-size:20px;
+  text-decoration:underline;
+}
+#gravatar {
+  float:right;
+}
+/* lists */
+ul,ol {
+  margin-top:10px;
+  margin-bottom:10px;
+}
 
+#container {
+  /*outline:1px solid red;*/
+  margin: auto 10%;
+  margin-top: 20px;
+  padding: 1%;
 
+  background: white;
+
+  border-radius: 15px;
+  box-shadow: 1px 1px 5px #888;
+}
+
+footer {
+  padding: 3px 10px;
+  margin-top: 20px;
+
+  background:#f8f8f8;
+
+  text-align:center;
+}
+footer #copy {
+  float:left;
+}
+footer ul#footer-menu {
+  margin:0px;
+  list-style:none;
+  float:right;
+}
+footer ul#footer-menu li {
+  display: inline-block;
+}
 
 
 
