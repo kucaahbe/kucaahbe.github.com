@@ -90,6 +90,17 @@ body {
   background: #f3f1f1;
 }
 
+/* headers */
+h1 {
+  margin: 10px 10px 20px;
+
+  font-size:30px;
+  text-shadow: 2px 2px 2px #000;
+}
+#gravatar {
+  float:right;
+}
+
 #container {
   /*outline:1px solid red;*/
   margin: auto 10%;
