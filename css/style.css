@@ -166,6 +166,16 @@ ul.posts li:hover {
 ul.posts li span {
   float:right;
 }
+blockquote {
+  background:#eaeaea;
+  padding:3px;
+  margin:5px 0;
+}
+p > code {
+  background:#eaeaea;
+  border:1px solid #b3b3b3;
+  padding:1px;
+}
 
 /* end of 'Your Styles' */
 
