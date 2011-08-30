@@ -121,3 +121,4 @@ delete `app/assets/application.css`
 * [compass scss framework](http://compass-style.org/)
 * [new rails assets pipeline](https://github.com/sstephenson/sprockets/#readme)
 * [incoming new html5-boilerplate for new rails](https://github.com/sporkd/html5-rails)
+* [usefull blog post](http://metaskills.net/2011/07/29/use-compass-sass-framework-files-with-the-rails-3.1.0.rc5-asset-pipeline/)
