@@ -7,7 +7,7 @@ Environment:
 ------------
 
 * ruby: `ruby 1.9.2p180 (2011-02-18 revision 30909) [i686-linux]`
-* rails `3.1.0.rc8`
+* rails `3.1.0`
 * generated scaffold: `post title:string body:text`
 
 Installation:
@@ -21,11 +21,11 @@ gem "haml"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0.rc"
-  gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
-  gem "compass", :git => 'git://github.com/chriseppstein/compass.git', :branch => 'rails31'
-  gem "html5-boilerplate"
+  gem "compass", '~> 0.12.alpha.0'
+  gem 'html5-boilerplate', :group => :production, :git => 'git://github.com/kucaahbe/compass-html5-boilerplate.git'
 end
 {% endhighlight %}
 
@@ -35,27 +35,62 @@ Then backup existing application layout and install all stuff:
 
 {% highlight bash %}
 mv app/views/layouts/application.html.erb app/views/layouts/application.html.old
-compass init rails -r html5-boilerplate -u html5-boilerplate --force
+bundle exec compass init rails -r html5-boilerplate -u html5-boilerplate --force
 {% endhighlight %}
-
-And restart the rails server.
 
 #### Fixing javascripts:
 
 Now move files in a right places:
 
 {% highlight bash %}
-mv public/javascripts/modernizr.min.js app/assets/javascripts
+mkdir -p app/assets/javascripts/tools
+mv public/javascripts/modernizr.min.js app/assets/javascripts/tools
+mv public/javascripts/respond.min.js app/assets/javascripts/tools
 mv public/javascripts/plugins.js app/assets/javascripts
-mv public/javascripts/respond.min.js app/assets/javascripts
 {% endhighlight %}
 
-And remove unneeded files:
+remove unneeded files:
 
 {% highlight bash %}
 rm public/javascripts/jquery.js
 rm public/javascripts/jquery.min.js
 rm public/javascripts/rails.js # used to provide UJS, but it is already provided by jquery-rails gem
+{% endhighlight %}
+
+create `app/assets/javascripts/modernizr+respond.js` file with following content:
+{% highlight bash %}
+//= require tools/modernizr.min
+//= require tools/respond.min
+{% endhighlight %}
+
+Modify `app/views/layouts/_head.html.haml` file:
+{% highlight ruby %}
+%meta{ :charset => "utf-8" }/
+
+-# Always force latest IE rendering engine (even in intranet) & Chrome Frame
+-# Remove this if you use the .htaccess
+%meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }/
+
+%title
+== #{ controller.controller_name.titleize } - #{ controller.action_name.titleize }
+
+%meta{ :name => "description", :content => "" }/
+%meta{ :name => "author", :content => "" }/
+
+-# Mobile viewport optimized: j.mp/bplateviewport
+%meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }/
+
+-# Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons
+
+-# Pass in a stylesheet_partial to render inside your head
+- if local_assigns[:stylesheet_partial]
+  = render :partial => local_assigns[:stylesheet_partial]
+
+-# All JavaScript at the bottom, except for Modernizr and Respond.
+-# Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+= javascript_include_tag 'modernizr+respond'
+
+= csrf_meta_tag
 {% endhighlight %}
 
 Modify `app/views/layouts/_javascripts.html.haml` file:
@@ -90,7 +125,7 @@ Modify `app/views/layouts/_javascripts.html.haml` file:
     s.parentNode.insertBefore(g,s)}(document,"script"));
 {% endhighlight %}
 
-and `app/assets/application.js`:
+and `app/assets/javascripts/application.js`:
 
 {% highlight javascript %}
 // This is a manifest file that'll be compiled into including all the files listed below.
@@ -103,6 +138,11 @@ and `app/assets/application.js`:
 //= require jquery_ujs
 {% endhighlight %}
 
+and finally add this line to `config/environments/production.rb`:
+{% highlight ruby %}
+config.assets.precompile += %w( jquery.js modernizr+respond.js )
+{% endhighlight %}
+
 and you should be done with javascripts.
 
 #### Fixing stylesheets:
@@ -113,7 +153,29 @@ move generated stylesheets:
 mv app/stylesheets/* app/assets/stylesheets
 {% endhighlight %}
 
-delete `app/assets/application.css`
+modify `app/assets/stylesheets/application.css`:
+{% highlight bash %}
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require style
+*/
+{% endhighlight %}
+
+and modify `app/views/layouts/_stylesheets.html.haml`:
+{% highlight ruby %}
+-# CSS: implied media="all"
+= stylesheet_link_tag 'application', :media => 'all'
+
+-# Append your own using content_for :stylesheets
+= yield :stylesheets
+{% endhighlight %}
+
+And <strong>restart the server</strong>
+
+this works for me in development and production.
 
 ##### Links:
 
