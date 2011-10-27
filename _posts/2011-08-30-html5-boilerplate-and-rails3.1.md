@@ -25,7 +25,7 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
   gem "compass", '~> 0.12.alpha.0'
-  gem 'html5-boilerplate', :group => :production, :git => 'git://github.com/kucaahbe/compass-html5-boilerplate.git'
+  gem 'html5-boilerplate', :group => :production, :git => 'git://github.com/sporkd/compass-html5-boilerplate.git'
 end
 {% endhighlight %}
 
