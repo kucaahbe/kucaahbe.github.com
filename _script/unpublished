@@ -1,0 +1,3 @@
+#!/bin/sh
+
+egrep 'published:\s*false' _posts/* | awk -F: '{ print $1 }'
