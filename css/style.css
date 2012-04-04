@@ -86,8 +86,23 @@ a:hover { color: #036; }
     \\ ========================================== //
 */
 
+.border-radius {
+  border-radius: 15px;
+  box-shadow: 1px 1px 5px #888;
+}
+
 body {
   background: #f3f1f1;
+}
+
+header {
+  padding: 10px 30px;
+  background: #52545a;
+  color:white;
+}
+header h2 {
+  color:white;
+  float:left;
 }
 
 /* headers */
@@ -128,19 +143,16 @@ table tbody tr td {
 #container {
   margin: auto 10%;
   margin-top: 20px;
+}
+
+#main {
+  margin-top:10px;
   padding: 1%;
-
-  background: white;
-
-  border-radius: 15px;
-  box-shadow: 1px 1px 5px #888;
 }
 
 footer {
   padding: 3px 10px;
   margin-top: 20px;
-
-  background:#f8f8f8;
 
   text-align:center;
 }
